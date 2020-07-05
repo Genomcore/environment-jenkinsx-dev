@@ -1,35 +1,92 @@
+autoUpdate:
+  enabled: false
+  schedule: ""
+bootConfigURL: https://github.com/Genomcore/environment-jenkinsx-dev
 cluster:
-  clusterName: ""
-  environmentGitOwner: ""
-  environmentGitPublic: false
-  project: ""
-  provider: gke
-  zone: ""
-gitops: true
+  clusterName: jenkinsx
+  devEnvApprovers:
+  - jordi-cami
+  - jx-genomcore
+  environmentGitOwner: genomcore
+  gitKind: github
+  gitName: github
+  gitServer: https://github.com
+  namespace: jx
+  provider: eks
+  region: eu-central-1
+  registry: 195146996125.dkr.ecr.eu-central-1.amazonaws.com
 environments:
-- key: dev
-- key: staging
-- key: production
+- ingress:
+    domain: genomcore.org
+    externalDNS: true
+    ignoreLoadBalancer: true
+    namespaceSubDomain: -jx.
+    tls:
+      email: jordi.cami@genomcore.com
+      enabled: true
+      production: true
+  key: dev
+  repository: environment-jenkinsx-dev
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: staging
+  repository: environment-jenkinsx-staging
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: production
+  repository: environment-jenkinsx-production
+gitops: true
 ingress:
-  domain: ""
-  externalDNS: false
+  domain: genomcore.org
+  externalDNS: true
+  ignoreLoadBalancer: true
+  namespaceSubDomain: -jx.
   tls:
-    email: ""
-    enabled: false
-    production: false
+    email: jordi.cami@genomcore.com
+    enabled: true
+    production: true
 kaniko: true
-secretStorage: local
+repository: nexus
+secretStorage: vault
 storage:
+  backup:
+    enabled: true
+    url: s3://gc-jx-backup
   logs:
-    enabled: false
-    url: ""
+    enabled: true
+    url: s3://logs-jenkinsx-20200705140132156400000001
   reports:
-    enabled: false
-    url: ""
+    enabled: true
+    url: s3://reports-jenkinsx-20200705140132165700000005
   repository:
-    enabled: false
-    url: ""
+    enabled: true
+    url: s3://repository-jenkinsx-20200705140132166000000006
+terraform: true
+vault:
+  aws:
+    dynamoDBRegion: eu-central-1
+    dynamoDBTable: vault-unseal-jenkinsx-OoH0Z5Z8
+    iamUserName: jenkins-x-vault
+    kmsKeyId: e06388d5-4dba-4761-adc1-2eed28d61a38
+    kmsRegion: eu-central-1
+    s3Bucket: vault-unseal-jenkinsx-20200705140132165500000004
+    s3Region: eu-central-1
+velero:
+  schedule: ""
+  ttl: ""
 versionStream:
-  ref: "master"
+  ref: v1.0.520
   url: https://github.com/jenkins-x/jenkins-x-versions.git
 webhook: lighthouse
