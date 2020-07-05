@@ -1,0 +1,21 @@
+apiVersion: jenkins.io/v1
+kind: SourceRepository
+metadata:
+  creationTimestamp: null
+  labels:
+    owner: Genomcore
+    provider: github
+    repository: jx-http-watch-pipeline-activity
+  name: genomcore-jx-http-watch-pipeline-activity
+spec:
+  description: Imported application for Genomcore/jx-http-watch-pipeline-activity
+  httpCloneURL: https://github.com/Genomcore/jx-http-watch-pipeline-activity.git
+  org: Genomcore
+  provider: https://github.com
+  providerKind: github
+  providerName: github
+  repo: jx-http-watch-pipeline-activity
+  scheduler:
+    kind: ""
+    name: ""
+  url: https://github.com/Genomcore/jx-http-watch-pipeline-activity.git
