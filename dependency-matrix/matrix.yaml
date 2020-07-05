@@ -1,7 +1,0 @@
-dependencies:
-- host: github.com
-  owner: Genomcore
-  repo: jx-quickstart-1
-  url: https://github.com/Genomcore/jx-quickstart-1.git
-  version: ""
-  versionURL: ""
