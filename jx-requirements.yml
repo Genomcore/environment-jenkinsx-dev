@@ -66,22 +66,22 @@ storage:
     url: s3://gc-jx-backup
   logs:
     enabled: true
-    url: s3://logs-jenkinsx-20200705140132156400000001
+    url: s3://logs-jenkinsx-20200705160506338300000006
   reports:
     enabled: true
-    url: s3://reports-jenkinsx-20200705140132165700000005
+    url: s3://reports-jenkinsx-20200705160506338200000005
   repository:
     enabled: true
-    url: s3://repository-jenkinsx-20200705140132166000000006
+    url: s3://repository-jenkinsx-20200705160506337700000004
 terraform: true
 vault:
   aws:
     dynamoDBRegion: eu-central-1
-    dynamoDBTable: vault-unseal-jenkinsx-OoH0Z5Z8
+    dynamoDBTable: vault-unseal-jenkinsx-fiQKNO9F
     iamUserName: jenkins-x-vault
-    kmsKeyId: e06388d5-4dba-4761-adc1-2eed28d61a38
+    kmsKeyId: cf9ea070-c866-40f6-9274-e549e4f13de8
     kmsRegion: eu-central-1
-    s3Bucket: vault-unseal-jenkinsx-20200705140132165500000004
+    s3Bucket: vault-unseal-jenkinsx-20200705160506338400000007
     s3Region: eu-central-1
 velero:
   schedule: ""
