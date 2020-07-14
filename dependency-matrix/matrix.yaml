@@ -17,3 +17,9 @@ dependencies:
   url: https://github.com/Genomcore/it-test-app.git
   version: ""
   versionURL: ""
+- host: github.com
+  owner: Genomcore
+  repo: admin-app
+  url: https://github.com/Genomcore/admin-app.git
+  version: ""
+  versionURL: ""
